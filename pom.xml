@@ -46,7 +46,12 @@
 			<version>6.11.0</version>
 		</dependency>
 	</dependencies>
-
+	<repositories>
+		<repository>
+			<id>jaspersoft-third-party</id>
+			<url>http://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/</url>
+		</repository>
+	</repositories>
 	<build>
 		<plugins>
 			<plugin>
