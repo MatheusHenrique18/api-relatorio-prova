@@ -2,9 +2,9 @@
 
 PROJETO CRIADO PARA GERAR BINÁRIO DE UM PDF CRIADO PELO JASPER REPORTS, RECEBENDO COMO ENTRADA UM JSON POSSUINDO EM SEU CONTEÚDO LISTA DENTRO DE LISTA. API FOI PUBLICADA NA NUVEM DO HEROKU, SEGUE ABAIXO UM EXEMPLO PARA TESTAR A REQUISIÇÃO (UTILIZAR POSTMAN OU SEMELHANTES):
 
-REQUISIÇÃO DO TIPO -> POST
-URI -> https://api-relatorio-prova.herokuapp.com/api/relatorio/gerarPDF
-BODY -> {
+***REQUISIÇÃO DO TIPO ->*** POST<br />
+***URI ->*** https://api-relatorio-prova.herokuapp.com/api/relatorio/gerarPDF <br />
+***BODY ->*** {
     "professor": "Albert Einstein",
     "descricaoProva": "Prova para Aferimento de Conhecimentos Básicos - P1",
     "listaMaterias": [
