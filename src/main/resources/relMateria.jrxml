@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relMateria" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5bd3b353-5a64-46de-ad9a-52a81bcda8b7">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<subDataset name="ListaQuestoesDataset" uuid="a246f660-2ddc-47a6-9dec-38f673ca8525">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="descricaoQuestao" class="java.lang.String"/>
+		<field name="resposta" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="relatorioQuestao" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nomeMateria" class="java.lang.String"/>
+	<field name="listaQuestoes" class="java.util.ArrayList"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="1" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="172" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="190" height="30" uuid="151049e7-885d-44ba-b8b0-985a68446b6b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a7ebfeef-cc7b-4d92-8572-aeebfa96ec6d"/>
+				</reportElement>
+				<textFieldExpression><![CDATA["Matéria: " + $F{nomeMateria}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="20" y="40" width="510" height="100" uuid="5bec0441-cda7-4369-a455-39312f44c586">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="ListaQuestoesDataset" uuid="58280e46-3c9e-4e3e-81ba-321ecb708edb">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaQuestoes})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="510" uuid="ff2c7890-249f-444e-9bfe-7b3627f0791d">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:detailCell style="Table_TD" height="90">
+							<textField>
+								<reportElement x="0" y="0" width="510" height="45" uuid="865b12a7-fcbc-456c-b3d4-02570c3e939e"/>
+								<textFieldExpression><![CDATA[new java.lang.Integer($V{REPORT_COUNT}.intValue()) + ") " +$F{descricaoQuestao}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="0" y="45" width="510" height="45" uuid="41c52738-1405-4216-9192-94a8cf9ec7fd"/>
+								<textFieldExpression><![CDATA["=>" + $F{resposta}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

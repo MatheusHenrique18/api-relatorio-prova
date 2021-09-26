@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relProva" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="16a36f8a-a4d3-4455-ac90-dd991fcddbd3">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="relatorioMateria" class="java.io.InputStream"/>
+	<parameter name="relatorioQuestao" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="professor" class="java.lang.String"/>
+	<field name="descricaoProva" class="java.lang.String"/>
+	<field name="listaMaterias" class="java.util.ArrayList"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="24" width="550" height="26" uuid="0a994df9-e759-4fd8-a97c-db8156aecb8e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO PROVA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="148" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="80" width="555" height="51" uuid="04e8deac-4525-4fd4-8f20-96a556532065"/>
+				<subreportParameter name="relatorioQuestao">
+					<subreportParameterExpression><![CDATA[$P{relatorioQuestao}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaMaterias})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{relatorioMateria}]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="0" y="0" width="278" height="30" uuid="16b76507-d652-4200-a84c-0eded1a402e2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9c69efff-781b-4fc9-a816-57c915dc6d28"/>
+				</reportElement>
+				<textFieldExpression><![CDATA["Professor: " + $F{professor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="30" width="278" height="30" uuid="f0eb915c-f5cb-4cdb-b35c-985e23539e33">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0a9bb649-1112-4b3f-a3e2-a6cbc20bb8fc"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{descricaoProva}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="17" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="e247ed3a-dc5a-4d2b-bf62-f909fe840e7b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="1a5a673a-a87e-436d-a3c9-d085c90331be"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="730b6f18-85db-4d8d-82f4-90a77659fafa"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
