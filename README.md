@@ -1,10 +1,12 @@
 # api-relatorio-prova
 
-PROJETO CRIADO PARA GERAR BINÁRIO DE UM PDF CRIADO PELO JASPER REPORTS, RECEBENDO COMO ENTRADA UM JSON POSSUINDO EM SEU CONTEÚDO LISTA DENTRO DE LISTA. API FOI PUBLICADA NA NUVEM DO HEROKU, SEGUE ABAIXO UM EXEMPLO PARA TESTAR A REQUISIÇÃO (UTILIZAR POSTMAN OU SEMELHANTES):
+<h3>PROJETO CRIADO PARA GERAR BINÁRIO DE UM PDF CRIADO PELO JASPER REPORTS, RECEBENDO COMO ENTRADA UM JSON POSSUINDO EM SEU CONTEÚDO LISTA DENTRO DE LISTA. API FOI PUBLICADA NA NUVEM DO HEROKU, SEGUE ABAIXO UM EXEMPLO PARA TESTAR A REQUISIÇÃO (UTILIZAR POSTMAN OU SEMELHANTES):</h3>
 
-***REQUISIÇÃO DO TIPO ->*** POST<br />
-***URI ->*** https://api-relatorio-prova.herokuapp.com/api/relatorio/gerarPDF <br />
-***BODY ->*** {
+<li><b>REQUISIÇÃO DO TIPO -></b> POST</li>
+<li><b>URI -></b> https://api-relatorio-prova.herokuapp.com/api/relatorio/gerarPDF </li>
+<li><b>BODY -></b></li>
+<pre><code>
+{
     "professor": "Albert Einstein",
     "descricaoProva": "Prova para Aferimento de Conhecimentos Básicos - P1",
     "listaMaterias": [
@@ -44,3 +46,7 @@ PROJETO CRIADO PARA GERAR BINÁRIO DE UM PDF CRIADO PELO JASPER REPORTS, RECEBEN
         }
     ]
 }
+</code></pre>
+
+<li><b>PEGAR O BINÁRIO DE RESPOSTA E ATRIBUIR A VARIÁVEL "response" NO PRÓPRIO NAVEGADOR -></b> var response = "BINÁRIO AQUI"; </li>
+<li><b>EXECUTAR O COMANDO -></b> window.open('data:application/pdf;base64,' + response, '', 'width=700px,height=900px'); </li>
