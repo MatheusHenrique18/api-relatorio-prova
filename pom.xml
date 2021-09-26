@@ -49,7 +49,7 @@
 	<repositories>
 		<repository>
 			<id>jaspersoft-third-party</id>
-			<url>http://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/</url>
+			<url>https://jaspersoft.jfrog.io/ui/native/third-party-ce-artifacts/</url>
 		</repository>
 	</repositories>
 	<build>
