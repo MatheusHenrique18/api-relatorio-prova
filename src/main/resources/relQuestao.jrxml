@@ -2,11 +2,12 @@
 <!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relQuestao" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2ca12d8e-c9e9-4e95-8731-436de47806eb">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="relatorioAlternativa" class="net.sf.jasperreports.engine.JasperReport"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
 	<field name="descricaoQuestao" class="java.lang.String"/>
-	<field name="resposta" class="java.lang.String"/>
+	<field name="listaAlternativas" class="java.util.ArrayList"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -16,19 +17,21 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="103" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="550" height="30" uuid="3ef73b3c-6fef-4dde-afd5-654efd35660f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d3f4dfd4-1c5d-49ae-bffd-888e2c2d7a73"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{descricaoQuestao}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="0" y="30" width="549" height="30" uuid="d555310d-a4a9-4b7d-a28b-a73f2ecc05cd">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3690982f-e41b-42cd-9e02-8d63c3d03b17"/>
+			<subreport>
+				<reportElement x="0" y="40" width="550" height="35" uuid="b52ed4db-9c3d-496d-9023-2f39f85268f1">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA["=> " + $F{resposta}]]></textFieldExpression>
-			</textField>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaAlternativas})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{relatorioAlternativa}]]></subreportExpression>
+			</subreport>
 		</band>
 	</detail>
 </jasperReport>

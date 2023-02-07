@@ -1,9 +1,11 @@
 package com.mhsb.relatorioJasper.model;
 
+import java.util.*;
+
 public class Questao {
 
 	private String descricaoQuestao;
-	private String resposta;
+	private List<Alternativa> listaAlternativas = new ArrayList<Alternativa>();
 	
 	public String getDescricaoQuestao() {
 		return descricaoQuestao;
@@ -11,11 +13,11 @@ public class Questao {
 	public void setDescricaoQuestao(String descricaoQuestao) {
 		this.descricaoQuestao = descricaoQuestao;
 	}
-	public String getResposta() {
-		return resposta;
+	public List<Alternativa> getListaAlternativas() {
+		return listaAlternativas;
 	}
-	public void setResposta(String resposta) {
-		this.resposta = resposta;
+	public void setListaAlternativas(List<Alternativa> listaAlternativas) {
+		this.listaAlternativas = listaAlternativas;
 	}
 	
 }

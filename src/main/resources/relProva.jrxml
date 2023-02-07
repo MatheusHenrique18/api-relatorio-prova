@@ -2,8 +2,9 @@
 <!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relProva" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="16a36f8a-a4d3-4455-ac90-dd991fcddbd3">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
-	<parameter name="relatorioMateria" class="java.io.InputStream"/>
-	<parameter name="relatorioQuestao" class="java.io.InputStream"/>
+	<parameter name="relatorioMateria" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="relatorioQuestao" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="relatorioAlternativa" class="net.sf.jasperreports.engine.JasperReport"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -25,7 +26,9 @@
 		</band>
 	</title>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="1" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
 	</columnHeader>
 	<detail>
 		<band height="148" splitType="Stretch">
@@ -33,6 +36,9 @@
 				<reportElement x="0" y="80" width="555" height="51" uuid="04e8deac-4525-4fd4-8f20-96a556532065"/>
 				<subreportParameter name="relatorioQuestao">
 					<subreportParameterExpression><![CDATA[$P{relatorioQuestao}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="relatorioAlternativa">
+					<subreportParameterExpression><![CDATA[$P{relatorioAlternativa}]]></subreportParameterExpression>
 				</subreportParameter>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaMaterias})]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{relatorioMateria}]]></subreportExpression>
